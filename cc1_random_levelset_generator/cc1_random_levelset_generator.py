@@ -58,7 +58,7 @@ class CC1LevelsetWrapper:
     # args can be int, str, collection of int, or collection of str
     def keep(self, *args):
         to_keep = self.get_valid_arg_set(args)
-        intersection = [self.levelset.levels[i-1] for i in self.eligible.intersection(to_keep)]
+        intersection = [self.levelset.levels[i-1].title for i in self.eligible.intersection(to_keep)]
         print(f"Kept {len(intersection)} levels: {intersection}")
         return self.drop(self.eligible.difference(to_keep))
     
