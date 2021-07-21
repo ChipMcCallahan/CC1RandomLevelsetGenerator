@@ -86,10 +86,14 @@ class CC1RandomLevelsetGenerator:
     def get_set(self, levelset):
         return self.pool[levelset]
 
-    def drop(self, titles):
-        if isinstance(titles, str):
-            titles = [titles]
+    def drop(self, *titles):
+        flat_list = []
         for title in titles:
+            if isinstance(title, str):
+                flat_list.append(title)
+            else:
+                flat_list.extend(title)
+        for title in flat_list:
             for wrapper in self.pool.values():
                 if title.lower() in wrapper.titles:
                     wrapper.drop(title)
