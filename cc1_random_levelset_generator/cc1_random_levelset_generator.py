@@ -48,7 +48,7 @@ class CC1LevelsetWrapper:
     def drop(self, *args):
         to_remove = self.get_valid_arg_set(args)
         already_removed = to_remove.difference(self.eligible)
-        intersection = [self.levelset.levels[i-1] for i in self.eligible.intersection(to_remove)]
+        intersection = [self.levelset.levels[i-1].title for i in self.eligible.intersection(to_remove)]
         if len(already_removed) > 0:
             print(f"Elements {already_removed} were already removed. Ignoring.")
         print(f"Removed {len(intersection)} levels: {intersection}.")
@@ -65,7 +65,7 @@ class CC1LevelsetWrapper:
     # args can be int, str, collection of int, or collection of str
     def add(self, *args):
         to_add = self.get_valid_arg_set(args)
-        added = [self.levelset.levels[i-1] for i in to_add.difference(self.eligible)]
+        added = [self.levelset.levels[i-1].title for i in to_add.difference(self.eligible)]
         print(f"Added {len(added)} levels.")
         self.eligible.update(to_add)
         return self
