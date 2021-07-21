@@ -116,7 +116,8 @@ class CC1RandomLevelsetGenerator:
             random_set.levels.append(level)
 
         if filename:
-            with open(filename, "wb") as f:
-                f.write(random_set)
-                print(f"Wrote {len(random_set.levels)} levels to {filename}.")
+            self.writer.write(random_set, filename)
         return random_set
+
+    def write(self, lset, filename):
+        self.writer.write(lset, filename)
