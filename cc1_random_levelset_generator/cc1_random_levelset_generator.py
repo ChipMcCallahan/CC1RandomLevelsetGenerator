@@ -119,5 +119,5 @@ class CC1RandomLevelsetGenerator:
             self.writer.write(random_set, filename)
         return random_set
 
-    def write(self, lset, filename):
-        self.writer.write(lset, filename=filename)
+    def write(self, lset, out_file):
+        self.writer.write(lset, filename=out_file)
